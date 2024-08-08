@@ -1,0 +1,82 @@
+.cover-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .circle {
+    position: absolute;
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+    background-color: #fff000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    top: 12%;
+    left: -6%;
+  }
+  
+  .title {
+    font-size: 7rem;
+    font-weight: 900;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: black;
+    line-height: 1;
+    text-align: center;
+  }
+  
+  .name {
+    font-size: 3rem;
+    font-weight: normal;
+    color: black;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  
+  .header {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .FiveFactor {
+    padding: 0;
+    margin: 0;
+    font-weight: 900;
+    color: #111111;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  
+  .subTitle {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 0.9;
+  }
+  .quote {
+    font-family: cursive;
+  }
+  
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+  
+  .content {
+    position: absolute;
+    bottom: 10%;
+    right: 12%;
+    width: 40%;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }

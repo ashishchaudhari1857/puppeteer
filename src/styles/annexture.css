@@ -1,0 +1,77 @@
+.annexture-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    position: relative;
+    page-break-before: always;
+  
+  }
+  
+  .annexture-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+  }
+  
+  .annexture-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  
+  .image-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .annexture-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .annexture-subtitle {
+    color: #45c55b;
+    font-size: 2rem;
+    margin-top: 10px;
+    font-family: monospace;
+  }
+  .annexture-content {
+    padding: 0px 30px 20px 30px;
+  }
+  .annexture-list {
+    line-height: 1.4;
+    text-align: justify;
+  }
+  
+  .annexture-item {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+  }
+  .annexture-item-header {
+    margin: 0;
+  }
+  .annexture-item-description {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .key-traits {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .key-traits span{
+    font-size: 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid gray;
+  }
+  
+  .annextureBlackBar {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    background-color: black;
+    top: 15%;
+    left: 10%;
+  }
+  

@@ -1,0 +1,73 @@
+body {
+  line-height: 1.6;
+  background-color: white;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+@page: first {
+  margin: 0.5cm 0cm 1cm 0cm;
+}
+
+@page {
+  margin: 0cm;
+}
+
+.number {
+  font-size: 36px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.Disclaimer-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  page-break-before: always;
+  position: relative;
+}
+
+.Disclaimer-header-block {
+  width: 50%;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 2rem;
+}
+.Disclaimer-header {
+  background-color: #ffd700;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.Disclaimer-contact {
+  background-color: #333333;
+  color: white;
+  padding: 20px;
+}
+.Disclaimer-content {
+  padding: 20px;
+}
+.Disclaimer-content p {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+.Disclaimer-content h2{
+  font-weight: 700;
+  font-size: 3rem;
+  color: greenyellow;
+  font-family: monospace;
+}
+
+.Disclaimer-blackBar{
+  position:absolute;
+  top:2%;
+  left: 2%;
+  width: 20px;
+  height: 60px;
+  z-index: -1;
+  background-color: black;
+}
+

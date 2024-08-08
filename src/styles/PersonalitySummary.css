@@ -1,0 +1,142 @@
+
+.container {
+    position: relative;
+    background-color: rgb(241, 238, 238);
+    padding: 50px 30px 50px 70px;
+    border-radius: 4px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  
+  .container .header_c {
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+    width: calc(100% - 100px); 
+    top: 3rem;
+    left: 50px;
+    right: 50px;
+    display: flex;
+  }
+  .container .header_c .title {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .group-photo {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 20px;
+  }
+.container .quote {
+    background-color: #ffeb3b;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 60%;
+    height: 200px;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .columns {
+    display: flex;
+    justify-content: space-between;
+  }
+  .column {
+    flex: 1;
+    padding: 0 10px;
+  }
+  .column p {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    font-weight: 400;
+    color: #111111;
+  }
+  .list {
+    color: black;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin: 0.5rem;
+  }
+  .list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0.5rem;
+    max-height: 300px;
+    overflow-x: auto;
+  }
+  
+  .list-item {
+    color: black;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 2px 0;
+    flex: 0 0 50%; /* Make each item take up half of the container's width without growing */
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+    line-height: 1.2; /* Adjust this value if needed */
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  .Header_Lines {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    padding: 0;
+    margin: 0.4rem;
+    text-transform: capitalize;
+  }
+  .title_note {
+    color: rgb(240, 97, 41);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .image-placeholder {
+    background-color: #333;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 5px;
+    margin-top: -2rem;
+  }
+  
+  .vertical-text-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    background-color: #d8d1d1;
+  }
+  
+  .personal-summary {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    transform-origin: center center;
+    white-space: nowrap;
+    color: rgb(24, 23, 23);
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  

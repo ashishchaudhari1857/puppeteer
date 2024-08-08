@@ -1,0 +1,36 @@
+.Detail-container {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 60px;
+  }
+  .Detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .Detail-title {
+    font-size: 5rem;
+    font-weight: 800;
+    padding: 5px 10px;
+    color: black;
+    line-height: 1;
+  }
+  .Detail-pageNumber {
+    font-size: 36px;
+    margin: 0;
+    font-weight: bold;
+  }
+  .Detail-subtitle {
+    font-size: 30px;
+    color: #ffd700;
+    margin-bottom: 10px;
+    text-align: end;
+    font-weight: bold;
+  }
+  .Detail-description {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #111111;
+    text-align: justify;
+  }

@@ -1,0 +1,64 @@
+.recommendations-container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+    page-break-before: always;
+  }
+  .recommendations-header {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    padding: 60px 60px 0px 60px;
+  }
+  .recommendations-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: black;
+  }
+  .recommendations-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+  }
+  .recommendations-list_block {
+    padding: 20px;
+  }
+  .recommendations-list {
+    padding-left: 20px;
+    list-style-type: none;
+    font-size: 1.1rem;
+    text-align: justify;
+  }
+  .recommendations-item {
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+  .recommendations-background {
+    position: absolute;
+    width: 650px;
+    height: 550px;
+    background-color: #ffff00;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  .recommendations-team-image {
+    max-width: 100%;
+    height: 100%;
+    float: right;
+  }
+  .recommendationsBlackBar {
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    background-color: black;
+    top: 10%;
+    right: 10%;
+  }
