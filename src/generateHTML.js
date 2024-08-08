@@ -11,7 +11,7 @@ async function generateHTML(data) {
   const skillContainerCss = fs.readFileSync(path.join(__dirname ,'./styles/SkillContainer.css') ,"utf8");
   const derailsCss = fs.readFileSync(path.join(__dirname ,'./styles/Derails.css') ,"utf8");
   const recommendationsCss = fs.readFileSync(path.join(__dirname ,'./styles/Recommendations.css') ,"utf8");
-  const annextureCss = fs.readFileSync(path.join(__dirname ,'./styles/annexture.css') ,"utf8");
+  const AnnexureCss = fs.readFileSync(path.join(__dirname ,'./styles/Annexure.css') ,"utf8");
 
   const logoPath = path.join(__dirname, "assets/Pdf_logo.png");
   const CoverImagePath = path.join(__dirname, "assets/coverImage.png");
@@ -34,7 +34,7 @@ async function generateHTML(data) {
   ${skillContainerCss}
   ${derailsCss}
   ${recommendationsCss}
-  ${annextureCss}
+  ${AnnexureCss}
 </style>
     </head>
     <body>
@@ -60,7 +60,7 @@ async function generateHTML(data) {
       ${generateSkillsSection(data.skills)}
       ${generateDerailersSection(data.derailers)}
       ${generateRecommendations(data.recommendations)}
-      ${generateaAnnexture(data.Annexture )}
+      ${generateaAnnexure(data.Annexure )}
       ${generateDisclaimer()}
     </body>
     </html>
@@ -262,42 +262,42 @@ function generateRecommendations(Recommendations) {
 }
 
 
-function generateaAnnexture(Annexture) {
-  const AnnextureImagePath_1 = path.join(__dirname, "assets/Annexture.png");
-  const AnnextureImage_1 = getBase64Image(AnnextureImagePath_1);
+function generateaAnnexure(Annexure) {
+  const AnnexureImagePath_1 = path.join(__dirname, "assets/Annexure.png");
+  const AnnexureImage_1 = getBase64Image(AnnexureImagePath_1);
 
   return `
-<div class="annexture-container">
-  <header class="annexture-header">
-    <h1 class="annexture-title">Annexture</h1>
+<div class="Annexure-container">
+  <header class="Annexure-header">
+    <h1 class="Annexure-title">Annexure</h1>
     <span class="number">06</span>
   </header>
   
   <div class="image-container">
-    <img src=${AnnextureImage_1} alt="Ship's Wheel" class="annexture-image">
-    <h2 class="annexture-subtitle">3FPA CONSTRUCTS</h2>
+    <img src=${AnnexureImage_1} alt="Ship's Wheel" class="Annexure-image">
+    <h2 class="Annexure-subtitle">3FPA CONSTRUCTS</h2>
   </div>
   
-  <div class="annexture-content">
-    <ol class="annexture-list">
-    ${Annexture.map((item)=>`
-       <li class="annexture-item">
-        <p class="annexture-item-description">
-        <strong class="annexture-item-header">${item.name}:</strong> ${item.description}</p>
+  <div class="Annexure-content">
+    <ol class="Annexure-list">
+    ${Annexure.map((item)=>`
+       <li class="Annexure-item">
+        <p class="Annexure-item-description">
+        <strong class="Annexure-item-header">${item.name}:</strong> ${item.description}</p>
         <p class="key-traits"><span>Key Traits:</span> ${item.keyTraits}</p>
       </li>
       `).join("")}
     </ol>
   </div>
-  <div class="annextureBlackBar"></div>
-  <div class="annextureBlackBar" style="left:100%; top:90%; height:60px; width:30px;"></div>
+  <div class="AnnexureBlackBar"></div>
+  <div class="AnnexureBlackBar" style="left:100%; top:90%; height:60px; width:30px;"></div>
 </div>
   `;
 }
 
 function generateDisclaimer() {
-  const AnnextureImagePath_1 = path.join(__dirname, "assets/Annexture.png");
-  const AnnextureImage_1 = getBase64Image(AnnextureImagePath_1);
+  const AnnexureImagePath_1 = path.join(__dirname, "assets/Annexure.png");
+  const AnnexureImage_1 = getBase64Image(AnnexureImagePath_1);
 
   return `
 <div class="Disclaimer-container">

@@ -160,7 +160,7 @@ function extractData() {
         "value": "Develop self-care routines to ensure personal well-being and prevent burnout."
       }
     ],
-    Annexture : [
+    Annexure : [
       {
         name: "Open-Minded",
         description: "Open-minded individuals embrace new experiences, creativity, and unconventional ideas. They are adaptable, curious, and willing to take risks.",

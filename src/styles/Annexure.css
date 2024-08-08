@@ -1,4 +1,4 @@
-.annexture-container {
+.Annexure-container {
     font-family: Arial, sans-serif;
     max-width: 800px;
     margin: 0 auto;
@@ -8,14 +8,14 @@
   
   }
   
-  .annexture-header {
+  .Annexure-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 60px;
   }
   
-  .annexture-title {
+  .Annexure-title {
     font-size: 3rem;
     font-weight: 800;
     margin: 0;
@@ -25,33 +25,33 @@
     text-align: center;
     margin: 20px 0;
   }
-  .annexture-image {
+  .Annexure-image {
     max-width: 100%;
     height: auto;
   }
   
-  .annexture-subtitle {
+  .Annexure-subtitle {
     color: #45c55b;
     font-size: 2rem;
     margin-top: 10px;
     font-family: monospace;
   }
-  .annexture-content {
+  .Annexure-content {
     padding: 0px 30px 20px 30px;
   }
-  .annexture-list {
+  .Annexure-list {
     line-height: 1.4;
     text-align: justify;
   }
   
-  .annexture-item {
+  .Annexure-item {
     margin-bottom: 20px;
     font-size: 1.1rem;
   }
-  .annexture-item-header {
+  .Annexure-item-header {
     margin: 0;
   }
-  .annexture-item-description {
+  .Annexure-item-description {
     margin: 0;
     font-size: 1.1rem;
   }
@@ -66,7 +66,7 @@
     border-bottom: 1px solid gray;
   }
   
-  .annextureBlackBar {
+  .AnnexureBlackBar {
     position: absolute;
     width: 80px;
     height: 20px;
