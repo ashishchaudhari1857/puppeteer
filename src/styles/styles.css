@@ -5,13 +5,13 @@ body {
   margin: 0;
   padding: 0;
 }
-@page: first {
+/* @page: first {
   margin: 0.5cm 0cm 1cm 0cm;
 }
 
 @page {
   margin: 0cm;
-}
+} */
 
 .number {
   font-size: 36px;

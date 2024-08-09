@@ -55,9 +55,9 @@ async function generateHTML(data) {
           <p class="description">Your report outlines a scientific approach to making smart, informed and practical career choices, custom designed based on your natural capabilities, preferences and success drivers.</p>
         </div>
       </div>
-      ${generateSection(data.personalityType, data.Data)}
+      ${generateSection(data.personalityType, data.summaryData)}
       ${pciSectionHTML}
-      ${generateSkillsSection(data.skills)}
+      ${generateSkillsSection(data.skillsToInvest)}
       ${generateDerailersSection(data.derailers)}
       ${generateRecommendations(data.recommendations)}
       ${generateaAnnexure(data.Annexure )}
@@ -86,11 +86,11 @@ function generateSection(title, items) {
         <div class="column">
           <p>Conscientiousness and Agreeableness are areas of your natural and core strengths. Your <span class="title_note">SUPERPOWERS</span> are:</p>
           <ul class="list">
-            ${items.SUPERPOWERS.map((item) => `<li>${item}</li>`).join("")}
+            ${items.superPowers.map((item) => `<li>${item}</li>`).join("")}
           </ul>
           <h3>Your <span class="title_note">COMBAT TERRITORIES</span> are</h3>
           <ul class="list">
-            ${items.COMBAT_TERRITORIES.map((item) => `<li>${item}</li>`).join(
+            ${items.combatTerritories.map((item) => `<li>${item}</li>`).join(
               ""
             )}
           </ul>
@@ -99,19 +99,13 @@ function generateSection(title, items) {
           <img class="image-placeholder" src="${ContainerImgBase64}" alt="loading">
           <div class="Header_Lines">WORDS THAT DESCRIBE YOUR PERSONALITY:</div>
           <ul class="list-wrap">
-            ${items.PERSONALITY_WORDS.map(
+            ${items.personalityWords.map(
               (item) => `<li class="list-item">${item}</li>`
             ).join("")}
           </ul>
           <div class="Header_Lines">Roles that will benefit from your superpowers will require:</div>
           <ul class="list">
-            ${items.ROLES.map((item) => `<li>${item}</li>`).join("")}
-          </ul>
-          <div class="Header_Lines">Some examples of roles that are in line with your strengths are:</div>
-          <ul class="list-wrap">
-            ${items.STRENGTHS.map(
-              (item) => `<li class="list-item">${item}</li>`
-            ).join("")}
+            ${items.roles.map((item) => `<li><span class="SkillItemTitle">${Object.keys(item)[0]}:</span>  ${item[Object.keys(item)[0]]}</li>`).join("")}
           </ul>
         </div>
       </div>
@@ -144,47 +138,89 @@ async function generatePCISection(scores) {
 function generateSkillsSection(skills) {
   const SkillSectionImgPath = path.join(__dirname, "assets/SkillSection.png");
   const SkillSectionImg64 = getBase64Image(SkillSectionImgPath);
+  let skillColumns = "";
+  let styleVariable = "";
+  const isSingleColumn = Object.keys(skills).length===1;
+  if (isSingleColumn) {
+    styleVariable = "width: 100%;"; 
+  } else {
+    styleVariable = "width: 48%;"; 
+  }
+
+  if (skills?.technical?.length > 0) {
+    skillColumns += `
+      <div class="SkillColumn" style="${styleVariable}">
+        <h2 class="SkillColumnHeader">Technical</h2>
+        <ol class="SkillList">
+        ${skills.technical
+          .map(
+            (item) => `
+              <li class="SkillItem">
+                <span class="SkillItemTitle">${Object.keys(item)[0]}:</span>
+                ${item[Object.keys(item)[0]]}
+              </li>
+            `
+          )
+          .join("")}
+        </ol>
+      </div>
+    `;
+  }
+
+  if (skills?.behavioral?.length > 0) {
+    skillColumns += `
+      <div class="SkillColumn" style="${styleVariable}">
+        <h2 class="SkillColumnHeader">Behavioral</h2>
+        <ol class="SkillList">
+        ${skills.behavioral
+          .map(
+            (item) => `
+              <li class="SkillItem">
+                <span class="SkillItemTitle">${Object.keys(item)[0]}:</span>
+                ${item[Object.keys(item)[0]]}
+              </li>
+            `
+          )
+          .join("")}
+        </ol>
+      </div>
+    `;
+  }
+
+  // Fallback in case there are no skills (shouldn't occur in normal circumstances)
+  if (skillColumns === "") {
+    skillColumns = `
+      <div class="SkillColumn" style="width: 100%;">
+        <ol class="SkillList">
+        ${[...skills.technical, ...skills.behavioral]
+          .map(
+            (item) => `
+              <li class="SkillItem">
+                <span class="SkillItemTitle">${Object.keys(item)[0]}:</span>
+                ${item[Object.keys(item)[0]]}
+              </li>
+            `
+          )
+          .join("")}
+        </ol>
+      </div>
+    `;
+  }
+
   return `
-  <div class="SkillContainer" style="page-break-before: always;">
-  <div class="SkillHeader">
-      <div class="number">03</div>    
-      <div class="SkillBlackRectangle"></div>
-  </div>
-  <h1 class="SkillTitle">Skills to Invest In</h1>
-  <div class="SkillImgContainer"> <img src=${SkillSectionImg64} alt="Team putting hands together" class="SkillImage"> </div>
-  <div class="SkillColumnsContainer">
-      <div class="SkillColumn">
-          <h2 class="SkillColumnHeader">Technical</h2>
-          <ol class="SkillList">
-          ${skills.technical
-            .map(
-              (item) => `
-            <li class="SkillItem">
-              <span class="SkillItemTitle">${Object.keys(item)[0]}:</span> 
-              ${item[Object.keys(item)[0]]}
-            </li>
-          `
-            )
-            .join("")}
-        </ol>        
+    <div class="SkillContainer" style="page-break-before:always;">
+      <div class="SkillHeader">
+        <div class="number">03</div>
+        <div class="SkillBlackRectangle"></div>
       </div>
-      <div class="SkillColumn">
-          <h2 class="SkillColumnHeader">Behavuioral</h2>
-          <ol class="SkillList">
-          ${skills.behavioral
-            .map(
-              (item) => `
-            <li class="SkillItem">
-              <span class="SkillItemTitle">${Object.keys(item)[0]}:</span> 
-              ${item[Object.keys(item)[0]]}
-            </li>
-          `
-            )
-            .join("")}
-        </ol>        
+      <h1 class="SkillTitle">Skills to Invest In</h1>
+      <div class="SkillImgContainer">
+        <img src="${SkillSectionImg64}" alt="Team putting hands together" class="SkillImage">
       </div>
-  </div>
-</div>
+      <div class="SkillColumnsContainer">
+        ${skillColumns}
+      </div>
+    </div>
   `;
 }
 
@@ -194,44 +230,60 @@ function generateDerailersSection(derailers) {
   const DerailerImage_1 = getBase64Image(DerailerImagePath_1);
   const DerailerImage_2 = getBase64Image(DerailerImagePath_2);
 
-  return `
-  <div class="DerailersContainer" style="page-break-before: always;">
-  <div class="DerailersHeader">
-    <h1 class="DerailersTitle">Potential Derailers</h1>
-    <span class="number">04</span>
-  </div>
-  <div class="DerailersContent">
-    <div class="DerailersSection">
-      <div class="TechnicalImage">
-        <img src=${DerailerImage_1} alt="Technical Image" class="SectionImage">
-      </div>
+  let technicalDerailers = "";
+  let behaviouralDerailers = "";
+
+  if (derailers?.technical && derailers?.technical.length > 0) {
+    technicalDerailers = `
       <div class="TechnicalContent">
         <h2 class="DerailersSubtitle">Technical</h2>
         <ol class="DerailersList">
-          ${derailers.technical.map(item => `
-            <li class="DerailersListItem"><strong>${item.key}:</strong> ${item.value}</li>
+          ${derailers.technical.map((item ,index) => `
+            <li class="DerailersListItem"><strong>${Object.keys(item)[0]}:</strong>  ${item[Object.keys(item)[0]]}</li>
           `).join('')}
         </ol>
       </div>
-    </div>
-    <div class="DerailersSection">
+      <div class="TechnicalImage">
+        <img src=${DerailerImage_1} alt="Technical Image" class="SectionImage">
+      </div>
+    `;
+  }
+
+  if (derailers?.behavioural && derailers?.behavioural.length > 0) {
+    behaviouralDerailers = `
       <div class="BehaviouralContent">
         <h2 class="DerailersSubtitle">Behavioural</h2>
         <ol class="DerailersList">
           ${derailers.behavioural.map(item => `
-            <li class="DerailersListItem"><strong>${item.key}:</strong> ${item.value}</li>
+            <li class="DerailersListItem"><strong>${Object.keys(item)[0]}:</strong> ${item[Object.keys(item)[0]]}</li>
           `).join('')}
         </ol>
       </div>
       <div class="BehaviouralImage">
         <img src=${DerailerImage_2} alt="Behavioural Image" class="SectionImage">
       </div>
+    `;
+  }
+
+  return `
+    <div class="DerailersContainer" style="page-break-before: always;">
+      <div class="DerailersHeader">
+        <h1 class="DerailersTitle">Potential Derailers</h1>
+        <span class="number">04</span>
+      </div>
+      <div class="DerailersContent">
+        <div class="DerailersSection">
+          ${technicalDerailers}
+        </div>
+        <div class="DerailersSection">
+          ${behaviouralDerailers}
+        </div>
+      </div>
+      <div class="DerailersBlackBar"></div>
     </div>
-  </div>
-  <div class="DerailersBlackBar"></div>
-</div>
   `;
 }
+
 function generateRecommendations(Recommendations) {
   const RecommendationsImagePath_1 = path.join(__dirname, "assets/Recommendation1.png");
   const RecommendationsPath_2 = path.join(__dirname, "assets/Recommendation2.png");
@@ -249,7 +301,7 @@ function generateRecommendations(Recommendations) {
       <div class="recommendations-list_block">
         <ul class="recommendations-list">
           ${Recommendations.map((item, index) => `
-            <li class="recommendations-item">${index + 1}. <strong>${item.key}:</strong> ${item.value}</li>
+            <li class="recommendations-item">${index + 1}. <strong>${Object.keys(item)[0]}:</strong> ${item[Object.keys(item)[0]]}</li>
           `).join('')}
         </ul>
       </div>
@@ -296,9 +348,6 @@ function generateaAnnexure(Annexure) {
 }
 
 function generateDisclaimer() {
-  const AnnexureImagePath_1 = path.join(__dirname, "assets/Annexure.png");
-  const AnnexureImage_1 = getBase64Image(AnnexureImagePath_1);
-
   return `
 <div class="Disclaimer-container">
    <div class="Disclaimer-header-block">

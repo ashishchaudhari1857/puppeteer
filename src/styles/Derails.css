@@ -51,7 +51,7 @@
   }
   .DerailersList {
     padding-left: 20px;
-    list-style-type: none;
+    /* list-style-type: none; */
     font-size: 1.1rem;
     text-align: justify;
   }
@@ -59,12 +59,12 @@
     margin-bottom: 5px;
     position: relative;
   }
-  .DerailersListItem::before {
+  /* .DerailersListItem::before {
     content: counter(item) ".";
     counter-increment: item;
     position: absolute;
     left: -20px;
-  }
+  } */
   .DerailersYellowCircle {
     position: absolute;
     width: 200px;
